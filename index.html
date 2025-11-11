@@ -184,7 +184,7 @@
     <tr><td>[2024.10] 基于AR的血栓清除系统。</td></tr>
     <tr><td>[2024.09] 协作投篮机器人。</td></tr>
     <tr><td>[2024.03] 基于AR的工业装配系统。</td></tr>
-  </tbody>A
+  </tbody>
 </table>
 <!---
 <h2>Open Source Contribution</h2>
@@ -278,7 +278,8 @@
     transition:transform .18s ease, box-shadow .18s ease;
     will-change: transform, box-shadow;
     transform: translateZ(0);
-    min-height:120px; /* 占位，避免未加载时坍塌 */
+    aspect-ratio: 4/3; /* 统一宽高比为4:3 */
+    min-height:200px; /* 增加最小高度 */
   }
   .photo-card:hover{
     transform: scale(1.01);
@@ -286,26 +287,29 @@
   }
   .photo-card img{
     width:100%;
-    height:auto;
+    height:100%; /* 高度设为100%填充容器 */
     display:block;
+    object-fit: cover; /* 关键属性：保持比例并填充整个容器 */
+    object-position: center; /* 图片居中显示 */
   }
   .photo-cap{
     position:absolute; left:10px; bottom:10px;
     padding:4px 8px; border-radius:10px;
     background:rgba(255,255,255,.72); backdrop-filter:blur(6px);
     font-size:12px; color:#111;
+    z-index:2; /* 确保文字在图片上方 */
   }
 </style>
 
 <div class="photo-wall">
   <a class="photo-card" href="./pic/life/lvx1.jpg" target="_blank" rel="noopener">
-    <img src="./pic/life/lvx1.jpg" alt="Tianjin"><span class="photo-cap">天津</span>
+    <img src="./pic/life/lvx1.jpg" alt="Tianjin" loading="lazy"><span class="photo-cap">天津</span>
   </a>
   <a class="photo-card" href="./pic/life/lvx2.jpg" target="_blank" rel="noopener">
-    <img src="./pic/life/lvx2.jpg" alt="Yantai"><span class="photo-cap">烟台</span>
+    <img src="./pic/life/lvx2.jpg" alt="Yantai" loading="lazy"><span class="photo-cap">烟台</span>
   </a>
   <a class="photo-card" href="./pic/life/lvx3.jpg" target="_blank" rel="noopener">
-    <img src="./pic/life/lvx3.jpg" alt="WulanchabuW"><span class="photo-cap">乌兰察布</span>
+    <img src="./pic/life/lvx3.jpg" alt="Wulanchabu" loading="lazy"><span class="photo-cap">乌兰察布</span>
   </a>
 </div>
 <!-- ===== /Travel Photo Wall ===== -->
